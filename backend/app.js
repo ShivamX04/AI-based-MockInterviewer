@@ -15,8 +15,8 @@ app.use(cookieParser());
 app.use(cors({
     origin: [
         "http://localhost:5173",
-        "https://ai-based-mockinterviewer.onrender.com"
-     ],
+        "https://ai-based-mock-interviewer.vercel.app"
+    ],
     credentials: true,
 }));
 
