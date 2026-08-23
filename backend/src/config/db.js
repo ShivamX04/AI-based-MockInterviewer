@@ -23,3 +23,5 @@ const connectDB = async () => {
         console.error(error);
     }
 };
+
+export default connectDB;
