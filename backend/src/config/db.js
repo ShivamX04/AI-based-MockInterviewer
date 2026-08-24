@@ -1,26 +1,21 @@
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
 dotenv.config();
 
 const connectDB = async () => {
     console.log("Connecting to database...");
-
-    console.log("MONGO_URL exists:", !!process.env.MONGO_URL);
     console.log(
-        "MongoDB host:",
-        process.env.MONGO_URL?.split("@")[1]?.split("/")[0]
+        "MongoDB URL:",
+        process.env.MONGO_URL?.replace(/:\/\/.*?:.*?@/, "://****:****@")
     );
 
     try {
-        await mongoose.connect(process.env.MONGO_URL, {
-            serverSelectionTimeoutMS: 10000
-        });
-
+        await mongoose.connect(process.env.MONGO_URL);
         console.log("Connected to database successfully");
     } catch (error) {
-        console.error("MongoDB connection failed:");
-        console.error(error);
+        console.log("MongoDB connection failed:");
+        console.log(error);
     }
 };
 
