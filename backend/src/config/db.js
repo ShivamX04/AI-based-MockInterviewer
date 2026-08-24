@@ -7,7 +7,7 @@ const connectDB = async () => {
     console.log("Connecting to database...");
     console.log(
         "MongoDB URL:",
-        process.env.MONGO_URL?.replace(/:\/\/.*?:.*?@/, "://****:****@")
+        process.env.MONGO_URL?.split("@")[1]?.split("/")[0]
     );
 
     try {
