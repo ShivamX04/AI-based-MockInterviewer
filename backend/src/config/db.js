@@ -30,4 +30,36 @@ const connectDB = async () => {
     }
 };
 
+import dns from "dns";
+import net from "net";
+
+dns.resolveSrv("_mongodb._tcp.cluster0.09nhtcc.mongodb.net", (err, addresses) => {
+    if (err) {
+        console.log("SRV DNS ERROR:", err);
+        return;
+    }
+
+    console.log("ATLAS SRV:", addresses);
+
+    const host = addresses[0].name;
+
+    const socket = net.createConnection(
+        { host, port: 27017, timeout: 10000 },
+        () => {
+            console.log("TCP 27017 CONNECTION: SUCCESS");
+            socket.destroy();
+        }
+    );
+
+    socket.on("error", (error) => {
+        console.log("TCP 27017 CONNECTION: FAILED");
+        console.log(error.message);
+    });
+
+    socket.on("timeout", () => {
+        console.log("TCP 27017 CONNECTION: TIMEOUT");
+        socket.destroy();
+    });
+});
+
 export default connectDB;
