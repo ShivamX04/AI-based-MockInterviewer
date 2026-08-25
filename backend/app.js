@@ -18,6 +18,12 @@ app.use(cors({
     credentials: true,
 }));
 
+app.use((req, res, next) => {
+    console.log("REQUEST:", req.method, req.originalUrl);
+    console.log("ORIGIN:", req.headers.origin);
+    next();
+});
+
 app.use(express.json());
 app.use(cookieParser());
 
