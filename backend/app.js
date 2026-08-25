@@ -12,7 +12,8 @@ const app = express();
 app.use(cors({
     origin: [
         "http://localhost:5173",
-        "https://ai-based-mock-interviewer.vercel.app"
+        "https://ai-based-mock-interviewer.vercel.app",
+        "https://ai-based-mock-interviewer-86hza8x0z-shivamx04s-projects.vercel.app"
     ],
     credentials: true,
 }));
