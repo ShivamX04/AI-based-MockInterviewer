@@ -41,7 +41,7 @@ const Interview = () =>{
         setIsSubmitting(true);
 
          const response = await api.post(
-    `/api/interview/submit/${id}`,
+    `/interview/submit/${id}`,
     { answers }
 );
 
@@ -74,7 +74,7 @@ const Interview = () =>{
             try{
 
         // make a GET request to the backend to fetch the interview data //
-            const response = await api.get(`/api/interview/${id}`);
+            const response = await api.get(`/interview/${id}`);
 
             console.log("Interview data fetched:", response.data);
 
