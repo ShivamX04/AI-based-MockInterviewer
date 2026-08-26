@@ -177,10 +177,7 @@ const Interview = () =>{
         <div className="flex flex-1 flex-col min-w-0">
         <Header
     title={interview.title}
-    showMoreOptions={true}
-    isPinned={interview.isPinned}
-    onPin={handlePin}
-    onDelete={handleDelete}
+    showMoreOptions={false}
 />
 
      <main className="flex-1 overflow-y-auto px-8 py-10">
