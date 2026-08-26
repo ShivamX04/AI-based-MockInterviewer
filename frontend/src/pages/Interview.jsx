@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from "../services/api.js";
 
 import Sidebar from "../components/Sidebar.jsx"
 import Header from "../components/Header.jsx"
@@ -40,13 +40,10 @@ const Interview = () =>{
     try {
         setIsSubmitting(true);
 
-        const response = await axios.post(
-            `http://localhost:3000/api/interview/submit/${id}`,
-            { answers },
-            {
-                withCredentials: true,
-            }
-        );
+         const response = await api.post(
+    `/api/interview/submit/${id}`,
+    { answers }
+);
 
         navigate(`/result/${id}`, {
             state: {
@@ -77,12 +74,7 @@ const Interview = () =>{
             try{
 
         // make a GET request to the backend to fetch the interview data //
-            const response = await axios.get(
-                `http://localhost:3000/api/interview/${id}`,
-                {
-                    withCredentials: true,
-                }
-            );
+            const response = await api.get(`/api/interview/${id}`);
 
             console.log("Interview data fetched:", response.data);
 
