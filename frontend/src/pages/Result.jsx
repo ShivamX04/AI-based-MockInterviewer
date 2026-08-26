@@ -400,11 +400,11 @@ const handleDelete = async () => {
                   </button>
 
                   <button
-                    onClick={() => navigate(`/interview/${interviewId}`)}
-                    className="rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-8 py-3 font-medium transition-all duration-300 hover:scale-105"
-                  >
-                    Practice Again
-                  </button>
+  onClick={() => navigate(`/interview/${id}`)}
+  className="rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-8 py-3 font-medium transition-all duration-300 hover:scale-105"
+>
+  Practice Again
+</button>
 
                 </div>
 
