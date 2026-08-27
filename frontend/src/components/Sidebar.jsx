@@ -148,21 +148,21 @@ const Sidebar = () => {
           </div>
 
           {/* Resume */}
-          {resume && (
-            <button
-              onClick={() =>
-                window.open(
-                  `http://localhost:3000/uploads/${resume.resumePath}`,
-                  "_blank"
-                )
-              }
-              className={collapsed ? collapsedBtn : navBtn}
-              title="Resume"
-            >
-              <i className="ri-file-text-line text-lg"></i>
-              {!collapsed && <span>Resume</span>}
-            </button>
-          )}
+         {resume && (
+  <button
+    onClick={() =>
+      window.open(
+        `${import.meta.env.VITE_API_URL.replace("/api", "")}/uploads/${resume.resumePath}`,
+        "_blank"
+      )
+    }
+    className={collapsed ? collapsedBtn : navBtn}
+    title="Resume"
+  >
+    <i className="ri-file-text-line text-lg"></i>
+    {!collapsed && <span>Resume</span>}
+  </button>
+)}
 
           
         {/* Search */}
